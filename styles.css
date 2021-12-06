@@ -61,7 +61,7 @@ body {
 
 .cell.x::before,
 .cell.x::after,
-.cell.o::before  {
+.cell.o::before {
     background-color: white;
 }
 
@@ -111,4 +111,45 @@ body {
     width: calc(var(--mark-size) * .5);
     height: calc(var(--mark-size)* .5);
     background-color: black;
+}
+
+/* .winning-message-background {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+} */
+
+.winning-message {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    color: black;
+    flex-direction: column;
+}
+
+.winning-message button{
+    font-size: 3rem;
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+    padding: .25em .5em;
+    cursor: pointer;
+    border-radius: 5%;
+}
+
+.winning-message button:hover {
+    background-color: white;
+    border-color: black;
+    color: black;
+}
+
+.winning-message.show {
+    display: flex;
 }
