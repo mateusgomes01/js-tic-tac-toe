@@ -16,12 +16,12 @@ const winningMessageElement = document.getElementById('winningMessage');
 const restartButton = document.getElementById('restartButton');
 const winningMessageTextElement = document.querySelector('[data-winning-message-text]');
 
-let xTurn;
+let turn;
 
 restartButton.addEventListener('click', startGame);
 
 function startGame() {
-    xturn = true;
+    turn = 0;
     cellElements.forEach(cell => {
         cell.classList.remove(X_CLASS);
         cell.classList.remove(O_CLASS);
@@ -37,7 +37,7 @@ startGame();
 
 function handleClick(e){
     const cell = e.target;
-    const currentClass = xTurn ? X_CLASS : O_CLASS;
+    const currentClass = turn%2 == 0 ? X_CLASS : O_CLASS;
     placeMark(cell, currentClass);
     if (checkWin(currentClass)){
         endGame(false);
@@ -53,7 +53,7 @@ function endGame(draw) {
     if (draw) {
         winningMessageTextElement.innerText = 'Draw!'
     } else {
-        winningMessageTextElement.innerText = `${xTurn ? "X's" : "O's"} wins!`
+        winningMessageTextElement.innerText = `${turn%2 == 0 ? "X's" : "O's"} wins!`
     }
     winningMessageElement.classList.add('show');
 }
@@ -69,13 +69,13 @@ function placeMark(cell, currentClass){
 }
 
 function swapTurns() {
-    xTurn = !xTurn;
+    turn++
 }
 
 function setBoardHoverClass(){
     board.classList.remove(X_CLASS);
     board.classList.remove(O_CLASS);
-    xTurn ? board.classList.add(X_CLASS) : board.classList.add(O_CLASS);
+    turn%2 == 0 ? board.classList.add(X_CLASS) : board.classList.add(O_CLASS);
 }
 
 function checkWin(currentClass){

@@ -113,12 +113,6 @@ body {
     background-color: black;
 }
 
-/* .winning-message-background {
-    display: none;
-    background-color: rgba(255, 255, 255, 0.2);
-    display: flex;
-} */
-
 .winning-message {
     display: none;
     background-color: rgba(255, 255, 255, 0.7);
